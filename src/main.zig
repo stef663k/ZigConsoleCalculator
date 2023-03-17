@@ -1,8 +1,9 @@
 const std = @import("std");
 
 pub fn main() !void {
-    var buffer: [20]u8 = undefined;
+    var allocator = std.heap.ArenaAllocator.init(std.heap.page_allocator);
+    defer allocator - deinit();
 
-    var reader = std.io.getStdIn().reader().setBufferSize(buffer[0..].len);
-    var writer = std.io.getStdOut().writer();
+    const input_stream = try std.io.getStdIn().reader();
+    var input_slice: []u8 = try allocator.alloc(u8, 1024);
 }
