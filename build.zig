@@ -54,7 +54,7 @@ pub fn build(b: *std.Build) void {
 
     // Creates a step for unit testing.
     const exe_tests = b.addTest(.{
-        .root_source_file = .{ .path = "src/main.zig" },
+        .root_source_file = .{ .path = "ZigCalculator.zig" },
         .target = target,
         .optimize = optimize,
     });
