@@ -5,7 +5,7 @@ pub fn main() !void {
     defer allocator.deinit();
 
     const input_stream = std.io.getStdIn().reader();
-    var input_slice: []u8 = try std.heap.alignPageAllocLen(u8, '\n', 1024);
+    var input_slice: []u8 = try std.heap.alloc(u8, 1024);
 
     while (true) {
         try std.io.print("Enter calculation: ");
