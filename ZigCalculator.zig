@@ -13,5 +13,10 @@ pub fn main() !void {
         try output.print("Enter you calculation: ", .{});
         var line = try input.readAllAlloc(allocator, 1024);
         if (line.len == 0) break;
+
+        var result: f64 = undefined;
+        try std.fmt.parseFloat(result, line);
+
+        try output.print("result: {}\n", .{result});
     }
 }
